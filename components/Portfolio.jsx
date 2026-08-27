@@ -14,7 +14,7 @@ export default function Portfolio() {
               <span className="project-number">0{index + 1}</span>
               {project.image ? (
                 <img
-                  src={project.image}
+                  src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, "")}`}
                   alt={`${project.name} project cover`}
                 />
               ) : (

@@ -56,7 +56,7 @@ function Hero() {
       </div>
       <aside className="hero-logo-panel">
         <img
-          src="/auraone-logo.jpeg"
+          src={`${import.meta.env.BASE_URL}auraone-logo.jpeg`}
           alt="AuraOne logo"
           draggable="false"
           onContextMenu={(event) => event.preventDefault()}
