@@ -21,7 +21,11 @@ export default function ContactForm() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (!form.name || !form.email || !form.whatsapp || !form.service || !form.message) {
+    if (status === "sending") {
+      return;
+    }
+
+    if (Object.values(form).some((value) => !value.trim())) {
       setStatus("error");
       return;
     }
@@ -111,12 +115,12 @@ export default function ContactForm() {
         {status === "sending" ? "Sending…" : "Send project inquiry ↗"}
       </button>
       {status === "success" && (
-        <p className="success">
+        <p className="success" role="status" aria-live="polite">
           Thank you! Your inquiry has been sent successfully.
         </p>
       )}
       {status === "error" && (
-        <p className="form-error">
+        <p className="form-error" role="alert">
           Unable to send right now. Please email us directly.
         </p>
       )}
