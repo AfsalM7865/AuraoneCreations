@@ -4,10 +4,13 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/AuraoneCreations/',
+
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+
   server: {
     port: 5173,
     proxy: {
@@ -17,7 +20,8 @@ export default defineConfig({
       },
     },
   },
+
   preview: {
     port: 4173,
   },
-})
+})  
