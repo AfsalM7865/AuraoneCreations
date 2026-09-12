@@ -4,7 +4,10 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/AuraoneCreations/',
+  // GitHub Pages serves this repository below /AuraoneCreations/; Vercel
+  // serves it at the domain root.  Use the platform flag so generated asset
+  // URLs are correct for both deployments.
+  base: process.env.VERCEL ? '/' : '/AuraoneCreations/',
 
   plugins: [
     react(),
